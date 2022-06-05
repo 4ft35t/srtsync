@@ -42,18 +42,21 @@ def fix_timeline(srt_eng: str, srt_chn_eng: str) -> None:
     subs_chn_list = list(subs_chn)
 
     index_chn = 0
+    index_eng = 0
     replace_map = {}
-    # 记录当前位置，从当前位置往后查找，用于处理重复台词
-    text_eng_current = text_eng[:]
     for text in text_chn_eng:
         index_chn += 1
-        if text not in text_eng_current:
+        if text not in text_eng:
             continue
         index_eng = text_eng.index(text)
-        index_eng_current = text_eng_current.index(text)
-        replace_map[index_eng] = subs_chn_list[index_chn - 1].text
+        if replace_map.get(index_eng):  # 重复台词
+            for i in range(1, text_eng.count(text)):
+                # 从上一次位置往后查找
+                index_eng = text_eng.index(text, index_eng)
+                if not replace_map.get(index_eng):
+                    break
 
-        text_eng_current = text_eng_current[index_eng_current + 1:]
+        replace_map[index_eng] = subs_chn_list[index_chn - 1].text
 
     # 替换对应文本内容
     index_eng = 0
