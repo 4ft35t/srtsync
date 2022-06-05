@@ -22,9 +22,10 @@ pip3 install -r requirements.txt
 
 ### 方式二
 使用 srtsync.sh 自动从视频中提取英文字幕, 并校准
-`bash srtsync.sh video.mkv srt_chn_eng.srt`
+
+` bash srtsync.sh video.mkv srt_chn_eng.srt`
 
 ## 其他
-尝试过 https://github.com/smacke/ffsubsync，可以处理不同台词偏移不一致的问题，但是不能完全处理好。故而突发奇想，用最简单的方法处理问题。
+尝试过 [https://github.com/smacke/ffsubsync](https://github.com/smacke/ffsubsync)，可以处理不同台词偏移不一致的问题，但是不能完全处理好。故而突发奇想，用最简单的方法处理问题。
 
 本项目不能用硬字幕来校准，有需求请使用其他优秀的工具，ffsubsync 项目首页有罗列其它类似工具，这里不再赘述。
