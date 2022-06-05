@@ -46,13 +46,13 @@ def fix_timeline(srt_eng: str, srt_chn_eng: str) -> None:
     # 记录当前位置，从当前位置往后查找，用于处理重复台词
     text_eng_current = text_eng[:]
     for text in text_chn_eng:
+        index_chn += 1
         if text not in text_eng_current:
             continue
         index_eng = text_eng.index(text)
         index_eng_current = text_eng_current.index(text)
-        replace_map[index_eng] = subs_chn_list[index_chn].text
+        replace_map[index_eng] = subs_chn_list[index_chn - 1].text
 
-        index_chn += 1
         text_eng_current = text_eng_current[index_eng_current + 1:]
 
     # 替换对应文本内容
