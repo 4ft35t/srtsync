@@ -11,7 +11,8 @@ sub_in_video=/tmp/sub_in_video.srt
 echo 'Extracting eng subtile from video ...'
 sub_eng_index=$(ffmpeg -i "$video" 2>&1 | fgrep Subtitle | fgrep eng | head -1 | cut -d: -f2 | cut -d'(' -f1)
 sub_eng_index=$((sub_eng_index-2))
-ffmpeg -i "$video" -map 0:s:$sub_eng_index $sub_in_video
+ffmpeg -y -i "$video" -map 0:s:$sub_eng_index $sub_in_video
 
 srtsync.py $sub_in_video "$srt"
+rm $sub_in_video
 echo 'Done'
