@@ -1,5 +1,5 @@
 # srtsync
-Automatic synchronization of subtitles with video embed subtitle, the correct the start point of every Sentence. Only for .srt, not support .ass.
+Automatic synchronization of subtitles with video embed subtitle, to correct the start point of every sentence. Only for .srt, not support .ass.
 
 根据视频内嵌英文字幕的时间轴，自动校准双语字幕。一般视频内嵌字幕都是 srt，故本项目只支持 srt 不支持 ass。
 
