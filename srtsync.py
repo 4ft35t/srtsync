@@ -52,7 +52,7 @@ def fix_timeline(srt_eng: str, srt_chn_eng: str) -> None:
         if replace_map.get(index_eng):  # 重复台词
             for i in range(1, text_eng.count(text)):
                 # 从上一次位置往后查找
-                index_eng = text_eng.index(text, index_eng)
+                index_eng = text_eng.index(text, index_eng + 1)
                 if not replace_map.get(index_eng):
                     break
 
