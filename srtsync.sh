@@ -17,7 +17,7 @@ ffmpeg -y -i "$video" -map 0:s:$sub_eng_index $sub_in_video
 input_encode=$(file --mime-encoding "$srt" | awk '{print $NF}')
 input_encode=${input_encode@U}
 output_encode=UTF-8
-iconv --from-code=$input_encode --to-code=$output_encode "$srt" > "$srt".utf8 && mv "$srt".utf8 $srt
+iconv --from-code=$input_encode --to-code=$output_encode "$srt" > "$srt".utf8 && mv "$srt".utf8 "$srt"
 
 srtsync.py $sub_in_video "$srt"
 rm $sub_in_video
