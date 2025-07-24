@@ -2,6 +2,8 @@
 
 set -e
 
+SRC="$(dirname $(readlink -f $0))"
+
 video_or_dir="$1"
 chi_srt="$2"
 
@@ -54,7 +56,7 @@ syncsrt() {
     else
         # sync timeline
         # chi_srt must be chi + eng
-        srtsync.py $sub_in_video "$chi_srt"
+        python3 $SRC/srtsync.py $sub_in_video "$chi_srt"
     fi
 
     echo "$video done"
