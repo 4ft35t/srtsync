@@ -25,6 +25,15 @@ pip3 install -r requirements.txt
 
 ` bash srtsync.sh video.mkv srt_chn_eng.srt`
 
+### 方式三
+网飞美剧自带多种语言字幕，使用 srtsync.sh 自动从视频中提取中文和英文字幕，合成双语字幕
+
+` bash srtsync.sh video.mkv`
+生成中上英下的双语字幕 video.zhi.srt
+
+给目录中的每个视频生成双语字幕
+` bash srtsync.sh {VIDEO_DIR}`
+
 ## 其他
 尝试过 [https://github.com/smacke/ffsubsync](https://github.com/smacke/ffsubsync)，可以处理不同台词偏移不一致的问题，但是不能完全处理好。故而突发奇想，用最简单的方法处理问题。
 
